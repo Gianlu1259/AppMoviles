@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 #navbar img{
   width: 35px;

@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
-import logo from './logos/logo.png'
-import cart from './logos/cart.png'
-import search from './logos/search.js'
+import { useNavigate } from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
 
 const Layout = ({children}) => {
+  
+  const [query, setQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (query.trim() !== '') {
+      navigate(`/${encodeURIComponent(query.trim())}`);
+    }
+  };
 
   const Footer = () => {
     return (
@@ -17,28 +25,14 @@ const Layout = ({children}) => {
     )
   }
 
-  const NavBar = () => {
-    return (
-      <nav id='navbar'>
-        <a href='/'>
-          <img src={logo}/>
-        </a>
-        <div id='search'>
-          <input placeholder='Buscar' type='text'/>
-          <button>
-            {search}
-          </button>
-        </div>
-        <div id='menu'>
-          <img src={cart}/>
-          <a href='/'>Inicio</a>
-        </div>
-      </nav>
-    )
-  }
+  
   return (
     <div>
-        <NavBar/>
+        <Navbar 
+          query={query}
+          setQuery={setQuery}
+          handleSearch={handleSearch}
+        />
         <main id='container'>
           {children}
         </main>
