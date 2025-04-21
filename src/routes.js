@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Product from "./pages/product/Product";
 import Layout from "./Layout";
-import Products from "./pages/Products/Products";
+import Search from "./pages/search/Search";
 
 
 
@@ -14,7 +14,7 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/product/:id" element={<Product />} />
-                <Route path="/:query" element={<Products />} />
+                <Route path="/:query" element={<Search />} />
             </Routes>
         </Layout>
     </Router>

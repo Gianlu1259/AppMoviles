@@ -2,6 +2,42 @@
 .home-container {
     padding: 20px;
   }
+  .select-orderPrice{
+    margin: 0 0 20px 0;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #802c6e;
+    background-color: #fff;
+    color: #802c6e;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .select-orderPrice:hover{
+    background-color: #802c6e;
+    color: #fff;
+  }
+  .select-orderPrice:focus{
+    outline: none;
+  }
+  .select-orderPrice:active{
+    background-color: #802c6e;
+    color: #fff;
+  }
+  .select-orderPrice:disabled{
+    background-color: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+  }
+
+  .select-orderPrice option{
+    background-color: #fff;
+    color: #802c6e;
+  }
+  .select-orderPrice option:hover{
+    background-color: #802c6e;
+    color: #fff;
+  }
   
   .category-title {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -102,4 +138,6 @@
       font-size: 13px;
     }
   }
+
+  
   

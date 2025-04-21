@@ -47,7 +47,7 @@ const Home = () => {
             {products
               .filter((prod) => prod.category === cat)
               .map((prod) => (
-                <Link to={`/product/${prod.id}`} className="product-card">
+                <Link key={prod.id} to={`/product/${prod.id}`} className="product-card">
                     <img src={prod.image} alt={prod.title} className="product-image" />
                     <div className="product-info">
                       <h3>{prod.title}</h3>

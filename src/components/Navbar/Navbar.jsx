@@ -7,7 +7,7 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
     return (
         <nav id='navbar'>
             <a href='/'>
-                <img src={logo} />
+                <img src={logo} alt='logo'/>
             </a>
             <div id='search'>
                 <input placeholder='Buscar' type='text' id='Search-Input'
@@ -22,7 +22,7 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
                 </button>
             </div>
             <div id='menu'>
-                <img src={cart} />
+                <img src={cart} alt='cart'/>
                 <a href='/'>Inicio</a>
             </div>
         </nav>
