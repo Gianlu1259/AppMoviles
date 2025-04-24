@@ -41,17 +41,13 @@
     text-align: center;
 }
  
-.Product-Buttons {
-    
-}
-
 .product-btn {
     margin-top: 12px;
     padding: 10px;
     font-size: 1rem;
-    color: white;
-    background-color: grey;
-    border: none;
+    color: #802c6e;
+    background-color: white;
+    border: 1px solid #802c6e;
     border-radius: 6px;
     cursor: pointer;
 }

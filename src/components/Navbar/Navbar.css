@@ -1,0 +1,119 @@
+#navbar {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+}
+
+#navbar img {
+    width: 35px;
+    height: 35px;
+}
+
+#navbar #menu {
+    display: flex;
+    align-items: center;
+}
+
+#navbar #menu a {
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 15px;
+    color: gray;
+}
+
+#search {
+    display: flex;
+    align-items: self-end;
+}
+
+#search button {
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+
+}
+
+#search svg {
+    width: 20px;
+    height: 20px;
+}
+
+#search input {
+    text-decoration: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    font-size: large;
+    outline: none;
+}
+
+.cart-popup {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 300px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-items-list {
+    overflow-y: auto;
+    max-height: 250px;
+    margin-bottom: 10px;
+    padding-right: 5px;
+  }
+  
+  .cart-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .cart-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s ease;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .cart-link:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .cart-link img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .cart-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .cart-price {
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+  }
+  
