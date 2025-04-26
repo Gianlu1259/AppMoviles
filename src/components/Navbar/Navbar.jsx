@@ -2,15 +2,16 @@ import React from 'react'
 import logo from '../../logos/logo.png'
 import cart from '../../logos/cart.png'
 import search from '../../logos/search.js'
+import styles from './Navbar.module.css'
 
 const Navbar = ({ query, setQuery, handleSearch }) => {
     return (
-        <nav id='navbar'>
+        <nav className={styles['navbar']}>
             <a href='/'>
                 <img src={logo} />
             </a>
-            <div id='search'>
-                <input placeholder='Buscar' type='text' id='Search-Input'
+            <div className={styles['search']}>
+                <input placeholder='Buscar' type='text' id='Search-Input' className={styles['Search-Input']}
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={(e) => {
@@ -21,7 +22,7 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
                     {search}
                 </button>
             </div>
-            <div id='menu'>
+            <div className={styles['menu']}>
                 <img src={cart} />
                 <a href='/'>Inicio</a>
             </div>

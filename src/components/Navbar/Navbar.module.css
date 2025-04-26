@@ -1,4 +1,4 @@
-#navbar {
+.navbar {
     padding: 20px 15px;
     display: flex;
     align-items: center;
@@ -6,41 +6,41 @@
     border-bottom: 1px solid grey;
 }
 
-#navbar img {
+.navbar img {
     width: 35px;
     height: 35px;
 }
 
-#navbar #menu {
+.navbar .menu {
     display: flex;
     align-items: center;
 }
 
-#navbar #menu a {
+.navbar .menu a {
     text-decoration: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-left: 15px;
     color: gray;
 }
 
-#search {
+.search {
     display: flex;
     align-items: self-end;
 }
 
-#search button {
+.search button {
     border: none;
     background-color: transparent;
     padding: 0px;
 
 }
 
-#search svg {
+.search svg {
     width: 20px;
     height: 20px;
 }
 
-#search input {
+.search input {
     text-decoration: none;
     border: none;
     border-bottom: 1px solid gray;

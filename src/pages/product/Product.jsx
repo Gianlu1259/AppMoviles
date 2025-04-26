@@ -30,7 +30,7 @@ const Product = () => {
       </div>
       <div className={styles['product-info']}>
         <div className={styles['Product-Info']}>
-          <h1 className={styles['product-title']}>{product.title}</h1>
+          <h1 className={styles['product-title']}>{product.title} <p>⭐ {product.rating.rate} ({product.rating.count})</p></h1>
           <p className={styles['product-category']}>{product.category}</p>
           <p className={styles['product-price']}>${product.price}</p>
         </div>
@@ -38,7 +38,7 @@ const Product = () => {
           <button className={styles['product-btn']}>Agregar al carrito</button>
         </div>
         <div className={styles['Product-Description']}>
-          <p className={styles['product-Description']}>{product.description}</p>
+          <p className={styles['product-description']}>{product.description}</p>
         </div>
       </div>
     </section>
