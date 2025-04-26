@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
+
+import Product_Card from '../../components/Product Card/Product_Card.jsx'
+import { GetRecords } from '../../Services/Records'
+import { GetProductById } from '../../Services/Fake_Store'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
+  const [records, setRecords] = useState([])
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -38,8 +43,31 @@ const Home = () => {
     fetchProducts()
   }, [])
 
+  useEffect(() => {
+    const fetchRecords = async () => {
+      try {
+        const recordedIds = await GetRecords();
+        const products = await Promise.all(recordedIds.map(id => GetProductById(id))); // Trae los productos
+        setRecords(products);
+      } catch (err) {
+        console.error('Error al obtener productos del historial:', err);
+      }
+    };
+  
+    fetchRecords();
+  }, []);
+
   return (
     <div className="home-container">
+      <div className="category-block">
+        <h2 className="category-title">Previously visited</h2>
+        <div className="products-grid">
+          {records
+            .map((prod) => (
+              <Product_Card key={prod.id} product={prod}></Product_Card>
+            ))}
+        </div>
+      </div>
       {categories.map((cat) => (
         <div key={cat} className="category-block">
           <h2 className="category-title">{cat.toUpperCase()}</h2>
@@ -47,14 +75,7 @@ const Home = () => {
             {products
               .filter((prod) => prod.category === cat)
               .map((prod) => (
-                <Link key={prod.id} to={`/product/${prod.id}`} className="product-card">
-                    <img src={prod.image} alt={prod.title} className="product-image" />
-                    <div className="product-info">
-                      <h3>{prod.title}</h3>
-                      <p className="price">${prod.price}</p>
-                      <p className="rating">⭐ {prod.rating.rate} ({prod.rating.count})</p>
-                    </div>
-                  </Link>
+                <Product_Card key={prod.id} product={prod}></Product_Card>
               ))}
           </div>
         </div>
