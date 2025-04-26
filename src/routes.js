@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import Product from "./pages/product/Product";
 import Layout from "./Layout";
 import Search from "./pages/search/Search";
+import Share from "./pages/share/Share";
 
 
 
@@ -15,6 +16,7 @@ const AppRoutes = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/product/:id" element={<Product />} />
                 <Route path="/:query" element={<Search />} />
+                <Route path="/product/:id/share" element={<Share />} />
             </Routes>
         </Layout>
     </Router>

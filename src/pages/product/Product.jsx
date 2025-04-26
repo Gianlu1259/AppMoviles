@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import styles from './Product.module.css';
 
 const Product = () => {
@@ -36,10 +36,8 @@ const Product = () => {
     const existingProduct = cart.find((item) => item.id === product.id);
   
     if (existingProduct) {
-
       updatedCart = cart.filter((item) => item.id !== product.id);
     } else {
-
       updatedCart = [...cart, product];
     }
   
@@ -63,9 +61,12 @@ const Product = () => {
           <p className={styles['product-price']}>${product.price}</p>
         </div>
         <div className={styles['Product-Buttons']}>
-        <button onClick={addProductCart} className={styles['product-btn']}>
-          {cart.find((item) => item.id === product.id) ? 'En carrito' : 'Agregar al carrito'}
-        </button>
+          <button onClick={addProductCart} className={styles['product-btn']}>
+            {cart.find((item) => item.id === product.id) ? 'En carrito' : 'Agregar al carrito'}
+          </button>
+          <Link to={`/product/${id}/share`} className={styles['product-btn']}>
+            Compartir a un amigo
+          </Link>
         </div>
         <div className={styles['Product-Description']}>
           <p className={styles['product-Description']}>{product.description}</p>
