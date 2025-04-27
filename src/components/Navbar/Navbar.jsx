@@ -65,13 +65,13 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
                                 <ul className='cart-items-list'>
                                     {cartItems.map((item) => (
                                         <li key={item.id} className='cart-item'>
-                                        <a href={`/product/${item.id}`} className='cart-link'>
-                                            <img src={item.image} alt={item.title} />
-                                            <div className='cart-details'>
-                                            <p className='cart-title'>{item.title}</p>
-                                            <p className='cart-price'>${item.price}</p>
-                                            </div>
-                                        </a>
+                                            <a href={`/product/${item.id}`} className='cart-link'>
+                                                <img src={item.image} alt={item.title} />
+                                                <div className='cart-details'>
+                                                <p className='cart-title'>{item.title}</p>
+                                                <p className='cart-price'>${item.price}</p>
+                                                </div>
+                                            </a>
                                         </li>
                                     ))}
                                 </ul>

@@ -1,126 +1,123 @@
-/* === Product.module.css === */
 .Product-Main {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Product-Image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.Product-Info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-category {
+  color: #555;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #802c6e;
+}
+
+.Product-Buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.product-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #802c6e;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-btn:hover {
+  background-color: #a03b8c;
+  transform: translateY(-2px);
+}
+
+.product-btn:active {
+  background-color: #60224e;
+  transform: translateY(0);
+}
+
+.product-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(128, 44, 110, 0.4);
+}
+
+.Product-Description {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.product-Description {
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  .Product-Main {
+    flex-direction: row;
+    gap: 5%;
+    margin: 2rem;
   }
-  
-  .Product-Image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+
   .product-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 16px;
+    max-width: 100%;
+    margin-bottom: 0;
   }
-  
-  .product-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .Product-Info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .product-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .product-category {
-    color: #555;
-    text-transform: capitalize;
-    font-size: 0.9rem;
-  }
-  
-  .product-price {
-    font-size: 1.1rem;
-    font-style: italic;
-    font-weight: 600;
-    color: #802c6e;
-  }
-  
-  .Product-Buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  
-  .product-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #802c6e;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .product-btn:hover {
-    background-color: #a03b8c;
-    transform: translateY(-2px);
-  }
-  
-  .product-btn:active {
-    background-color: #60224e;
-    transform: translateY(0);
-  }
-  
-  .product-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(128, 44, 110, 0.4);
-  }
-  
+
   .Product-Description {
-    margin-top: 16px;
-    text-align: center;
+    text-align: left;
   }
-  
-  .product-Description {
-    font-style: italic;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #333;
+}
+
+@media (min-width: 1280px) {
+  .Product-Main {
+    margin: 4rem 15%;
+    gap: 15%;
   }
-  
-  /* Responsive adjustments */
-  @media (min-width: 768px) {
-    .Product-Main {
-      flex-direction: row;
-      gap: 5%;
-      margin: 2rem;
-    }
-  
-    .product-image {
-      max-width: 100%;
-      margin-bottom: 0;
-    }
-  
-    .Product-Description {
-      text-align: left;
-    }
-  }
-  
-  @media (min-width: 1280px) {
-    .Product-Main {
-      margin: 4rem 15%;
-      gap: 15%;
-    }
-  }
-  
+}

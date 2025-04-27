@@ -58,28 +58,34 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      <div className="category-block">
-        <h2 className="category-title">Previously visited</h2>
-        <div className="products-grid">
-          {records
-            .map((prod) => (
-              <Product_Card key={prod.id} product={prod}></Product_Card>
-            ))}
-        </div>
-      </div>
-      {categories.map((cat) => (
-        <div key={cat} className="category-block">
-          <h2 className="category-title">{cat.toUpperCase()}</h2>
+    <div className='Home'>
+      <aside className='Aside'>
+      </aside>
+      <div className="home-container">
+        <div className="category-block">
+          <h2 className="category-title">Previously visited</h2>
           <div className="products-grid">
-            {products
-              .filter((prod) => prod.category === cat)
+            {records
               .map((prod) => (
                 <Product_Card key={prod.id} product={prod}></Product_Card>
               ))}
           </div>
         </div>
-      ))}
+        {categories.map((cat) => (
+          <div key={cat} className="category-block">
+            <h2 className="category-title">{cat.toUpperCase()}</h2>
+            <div className="products-grid">
+              {products
+                .filter((prod) => prod.category === cat)
+                .map((prod) => (
+                  <Product_Card key={prod.id} product={prod}></Product_Card>
+                ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <aside className='Aside'>
+      </aside>
     </div>
   )
 }

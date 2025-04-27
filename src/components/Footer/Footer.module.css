@@ -1,0 +1,42 @@
+.Footer {
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.Footer p {
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: gray;
+}
+
+.Footer-Links {
+    display: flex;
+    gap: 15px;
+}
+
+.Footer-Links a {
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: gray;
+}
+
+.Map{
+    border: 1px solid rgb(201, 201, 201);
+    width: 200px; 
+    height: 200px;
+    margin-top: 20px;
+}
+
+@media(max-width: 600px) {
+    .Footer{
+        display: flex;
+        flex-direction: column;
+    }
+    .Map{
+        margin-top: 2rem;
+    }
+}
