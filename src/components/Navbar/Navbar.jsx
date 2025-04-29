@@ -16,6 +16,14 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
         setShowCart(!showCart);
     }
 
+    const removeProductCart = (id) =>{
+        const cart = localStorage.getItem('cart');
+        const cartParsed = cart ? JSON.parse(cart) : [];
+        const newCart = cartParsed.filter((item) => item.id !== id);
+        setCartItems(newCart);
+        localStorage.setItem('cart', JSON.stringify(newCart));
+    }
+
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (cartRef.current && !cartRef.current.contains(e.target)) {
@@ -65,13 +73,16 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
                                 <ul className='cart-items-list'>
                                     {cartItems.map((item) => (
                                         <li key={item.id} className='cart-item'>
-                                            <a href={`/product/${item.id}`} className='cart-link'>
-                                                <img src={item.image} alt={item.title} />
-                                                <div className='cart-details'>
-                                                <p className='cart-title'>{item.title}</p>
-                                                <p className='cart-price'>${item.price}</p>
-                                                </div>
-                                            </a>
+                                            <div id='cart-item-details'>
+                                                <a href={`/product/${item.id}`} className='cart-link'>
+                                                    <img src={item.image} alt={item.title} />
+                                                    <div className='cart-details'>
+                                                        <p className='cart-title'>{item.title}</p>
+                                                        <p className='cart-price'>${item.price}</p>
+                                                    </div>
+                                                </a>
+                                                <button onClick={()=>removeProductCart(item.id)}>Quitar</button>
+                                            </div>
                                         </li>
                                     ))}
                                 </ul>

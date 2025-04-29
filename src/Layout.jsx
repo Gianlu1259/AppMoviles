@@ -11,7 +11,7 @@ const Layout = ({children}) => {
 
   const handleSearch = () => {
     if (query.trim() !== '') {
-      navigate(`/${encodeURIComponent(query.trim())}`);
+      navigate(`/search/${encodeURIComponent(query.trim())}`);
     }
   };
   

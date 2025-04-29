@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
 
-import Product_Card from '../../components/Product Card/Product_Card.jsx'
+import ProductCard from '../../components/Product Card/ProductCard.jsx'
 import { GetRecords } from '../../Services/Records'
 import { GetProductById } from '../../Services/Fake_Store'
-import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [categories, setCategories] = useState([])
@@ -47,7 +46,7 @@ const Home = () => {
     const fetchRecords = async () => {
       try {
         const recordedIds = await GetRecords();
-        const products = await Promise.all(recordedIds.map(id => GetProductById(id))); // Trae los productos
+        const products = await Promise.all(recordedIds.map(id => GetProductById(id)));
         setRecords(products);
       } catch (err) {
         console.error('Error al obtener productos del historial:', err);
@@ -60,6 +59,7 @@ const Home = () => {
   return (
     <div className='Home'>
       <aside className='Aside'>
+        <img alt='products' src='https://http2.mlstatic.com/D_NQ_616031-MLA83858933470_042025-OO.webp'/>
       </aside>
       <div className="home-container">
         <div className="category-block">
@@ -67,7 +67,7 @@ const Home = () => {
           <div className="products-grid">
             {records
               .map((prod) => (
-                <Product_Card key={prod.id} product={prod}></Product_Card>
+                <ProductCard key={prod.id} product={prod}></ProductCard>
               ))}
           </div>
         </div>
@@ -78,13 +78,14 @@ const Home = () => {
               {products
                 .filter((prod) => prod.category === cat)
                 .map((prod) => (
-                  <Product_Card key={prod.id} product={prod}></Product_Card>
+                  <ProductCard key={prod.id} product={prod}></ProductCard>
                 ))}
             </div>
           </div>
         ))}
       </div>
       <aside className='Aside'>
+        <img alt='products' src='https://http2.mlstatic.com/D_NQ_797982-MLA83858942922_042025-OO.webp'/>
       </aside>
     </div>
   )

@@ -1,0 +1,77 @@
+.ContactPage {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  .contact-container {
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 10px #802c6e;
+    border-radius: 10px;
+    padding: 30px;
+  }
+  
+  .contact-title {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #802c6e;
+    border-left: 5px solid #802c6e;
+    padding-left: 10px;
+  }
+  
+  .contact-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info p {
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+  }
+  
+  .contact-form button {
+    background-color: #802c6e;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #5e2152;
+  }
+
+  .Map{
+    border: 1px solid rgb(201, 201, 201);
+    width: 200px; 
+    height: 200px;
+    margin-top: 20px;
+}
+
+@media(max-width: 600px) {
+    .Map{
+        margin-top: 2rem;
+    }
+}
+  

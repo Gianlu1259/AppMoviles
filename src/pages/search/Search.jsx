@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { FilterByName } from '../../components/Navbar/Search';
 import './Search.css';
 import { GetCategorys } from '../../Services/Fake_Store';
-import Product_Card from '../../components/Product Card/Product_Card.jsx';
+import ProductCard from '../../components/Product Card/ProductCard.jsx';
 
 const Products = () => {
   const { query } = useParams();
@@ -93,7 +93,7 @@ const Products = () => {
         <h2 className="category-title">{query}</h2>
         <div className="products-grid">
           {products.map(prod => (
-            <Product_Card key={prod.id} product={prod}></Product_Card>
+            <ProductCard key={prod.id} product={prod}></ProductCard>
           ))}
         </div>
       </div>

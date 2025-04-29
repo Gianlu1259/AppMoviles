@@ -8,19 +8,19 @@ const Footer = () => {
     const mapContainer = useRef(null);
 
     useEffect(() => {
-        const map = new maplibregl.Map({
-        container: mapContainer.current,
-        style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-        center: [-58.3816, -34.6037],
-        zoom: 13
-        });
-
-        new maplibregl.Marker()
-        .setLngLat([-58.3816, -34.6037])
-        .addTo(map);
-
-        return () => map.remove();
-    }, []);
+            const map = new maplibregl.Map({
+                container: mapContainer.current,
+                style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+                center: [-57.95, -34.933333],
+                zoom: 13
+            });
+        
+            new maplibregl.Marker()
+                .setLngLat([-57.95, -34.933333])
+                .addTo(map);
+        
+            return () => map.remove();
+        }, []);
 
     return (
       <footer id='footer' className={styles['Footer']}>
