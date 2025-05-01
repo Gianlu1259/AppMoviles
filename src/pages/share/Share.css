@@ -1,80 +1,151 @@
+/* src/components/Share/Share.css */
+
 .share-container {
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .share-title {
-    margin-bottom: 16px;
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .share-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 500px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group label {
-    margin-bottom: 4px;
-    font-weight: 600;
-    color: #555;
-  }
-  
-  .share-input,
-  .share-textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: inherit;
-  }
-  
-  .share-textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
-  .error-text {
-    color: red;
-    font-size: 0.875rem;
-    margin-top: 4px;
-  }
-  
-  .buttons-container {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: opacity 0.2s ease;
-  }
-  
-  .btn:hover {
-    opacity: 0.9;
-  }
-  
-  .btn-send {
-    background-color: #802c6e;
-    color: white;
-  }
-  
-  .btn-cancel {
-    background-color: #ccc;
-    color: #333;
-  }
-  
+  padding: 20px;
+}
+
+/* Contenedor vertical: preview encima, luego formulario */
+.share-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* PRODUCT PREVIEW: misma anchura que el formulario */
+.product-preview {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Card en fila: imagen a la izquierda, info a la derecha */
+.product-preview .card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+
+/* Imagen ocupa 40% del ancho */
+.product-preview img {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Cuerpo de la card ocupa 60% */
+.card-body {
+  width: 60%;
+  padding: 12px 16px;
+}
+
+/* Título, precio, etc. */
+.card-title {
+  font-size: 0.95rem;
+  margin: 0 0 4px;
+  color: #333;
+}
+
+.card-price {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #802c6e;
+  margin: 0 0 6px;
+}
+
+.card-category {
+  font-size: 0.7rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 0.75rem;
+  color: #555;
+  line-height: 1.4;
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* FORMULARIO debajo */
+.share-form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.share-title {
+  margin-bottom: 16px;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #555;
+}
+
+.share-input,
+.share-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.share-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-send {
+  background-color: #802c6e;
+  color: #fff;
+}
+
+.btn-send:hover {
+  background-color: #a53cae;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background-color: #bbb;
+}
