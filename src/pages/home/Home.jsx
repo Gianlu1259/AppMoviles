@@ -73,7 +73,10 @@ const Home = () => {
         </div>
         {categories.map((cat) => (
           <div key={cat} className="category-block">
-            <h2 className="category-title">{cat.toUpperCase()}</h2>
+            <div className='title-category'>
+              <h2 className="category-title">{cat.toUpperCase()}</h2>
+              <a href={`/category/${cat}`}>Ver mas</a>
+            </div>
             <div className="products-grid">
               {products
                 .filter((prod) => prod.category === cat)

@@ -3,11 +3,25 @@ import logo from '../../logos/logo.png';
 import cart from '../../logos/cart.png';
 import search from '../../logos/search.js';
 import './Navbar.css';
+import { GetCategorys } from '../../Services/Fake_Store.js';
 
 const Navbar = ({ query, setQuery, handleSearch }) => {
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
+    const [categories, setCategories] = useState([])
     const cartRef = useRef();
+
+    useEffect(() => {
+        
+          GetCategorys().then((res)=>{
+            if(res){
+                console.log(res)
+                setCategories(res);
+            }
+          });
+          
+        
+      }, []);
 
     const onClickCart = () => {
         const cart = localStorage.getItem('cart');
@@ -36,66 +50,98 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
 
     return (
         <nav id='navbar'>
-            <a href='/'>
-                <img src={logo} alt='logo' />
-            </a>
-            <div id='search'>
-                <input
-                    placeholder='Buscar'
-                    type='text'
-                    id='Search-Input'
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter') handleSearch();
-                    }}
-                />
-                <button onClick={handleSearch}>
-                    {search}
-                </button>
-            </div>
-            <div id='menu' ref={cartRef}>
-                <img
-                    id='cart'
-                    src={cart}
-                    alt='cart'
-                    onClick={onClickCart}
-                    style={{ cursor: 'pointer' }}
-                />
-                <a href='/'>Inicio</a>
+            <div id='navbar-content'>
 
-                {showCart && (
-                    <div className='cart-popup'>
-                        {cartItems.length === 0 ? (
-                            <p>Carrito vacío</p>
-                        ) : (
-                            <>
-                                <ul className='cart-items-list'>
-                                    {cartItems.map((item) => (
-                                        <li key={item.id} className='cart-item'>
-                                            <div id='cart-item-details'>
-                                                <a href={`/product/${item.id}`} className='cart-link'>
-                                                    <img src={item.image} alt={item.title} />
-                                                    <div className='cart-details'>
-                                                        <p className='cart-title'>{item.title}</p>
-                                                        <p className='cart-price'>${item.price}</p>
-                                                    </div>
-                                                </a>
-                                                <button onClick={()=>removeProductCart(item.id)}>Quitar</button>
-                                            </div>
+                <div id='content-logo'>
+
+                    <a href='/'>
+                        <img src={logo} alt='logo' />
+                    </a>
+                    <ul id='nav-categories'>
+                        {
+                            categories.map((cat, indx)=>{
+                                return <li key={cat} className='category'>
+                                            <a href={`/category/${cat}`}>
+                                                <button>
+                                                    {cat.toUpperCase()}
+                                                </button>
+                                            </a>
                                         </li>
-                                    ))}
-                                </ul>
+                            })
+                        }
+                    </ul>
+                </div>
+                <div id='menu' ref={cartRef}>
+                <div id='search'>
+                    <input
+                        placeholder='Buscar'
+                        type='text'
+                        id='Search-Input'
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') handleSearch();
+                        }}
+                    />
+                    <button onClick={handleSearch}>
+                        {search}
+                    </button>
+                </div>
+                    <img
+                        id='cart'
+                        src={cart}
+                        alt='cart'
+                        onClick={onClickCart}
+                        style={{ cursor: 'pointer' }}
+                    />
+                    <a href='/'>Inicio</a>
 
-                                <div className='cart-total'>
-                                    Total: ${cartItems.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
-                                </div>
-                            </>
-                        )}
-                    </div>
-                )}
+                    {showCart && (
+                        <div className='cart-popup'>
+                            {cartItems.length === 0 ? (
+                                <p>Carrito vacío</p>
+                            ) : (
+                                <>
+                                    <ul className='cart-items-list'>
+                                        {cartItems.map((item) => (
+                                            <li key={item.id} className='cart-item'>
+                                                <div id='cart-item-details'>
+                                                    <a href={`/product/${item.id}`} className='cart-link'>
+                                                        <img src={item.image} alt={item.title} />
+                                                        <div className='cart-details'>
+                                                            <p className='cart-title'>{item.title}</p>
+                                                            <p className='cart-price'>${item.price}</p>
+                                                        </div>
+                                                    </a>
+                                                    <button onClick={()=>removeProductCart(item.id)}>Quitar</button>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
 
+                                    <div className='cart-total'>
+                                        Total: ${cartItems.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    )}
+
+                </div>
             </div>
+            <ul id='nav-categories-mobile'>
+                    {
+                        categories.map((cat, indx)=>{
+                            return <li key={cat} className='category'>
+                                <a href={`/category/${cat}`}>
+                                    <button>
+                                        {cat.toUpperCase()}
+                                    </button>
+                                </a>
+                            </li>
+                        })
+                    }
+                </ul>
         </nav>
     );
 };

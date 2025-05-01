@@ -88,7 +88,18 @@
   color: #777;
 }
 
+.title-category{
+  display: flex;
+  justify-content: space-between;
 
+}
+.title-category a{
+  text-decoration: none;
+  color: #333;
+}
+.title-category a:hover{
+  text-decoration: underline;
+}
 /* === Mobile === */
 @media (max-width: 600px) {
   .Aside{
@@ -105,8 +116,8 @@
   }
 
   .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: none !important;
+    gap: none !important;
   }
 
   .product-card {
