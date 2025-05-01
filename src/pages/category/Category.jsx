@@ -15,6 +15,7 @@ const Category = () => {
         setProduct(res);
       }
     })
+    // eslint-disable-next-line
   },[])
 
   const changeOrderPrice = (value) => {

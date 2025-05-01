@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { GetProductById } from '../../Services/Fake_Store';
@@ -17,15 +16,31 @@ const Share = () => {
     });
   }, [id]);
 
+  const isValidEmail = (email) => {
+    const re = /^\S+@\S+\.\S+$/;
+    return re.test(email);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.sender) newErrors.sender = 'El correo del emisor es requerido.';
-    if (!formData.recipient) newErrors.recipient = 'El correo del destinatario es requerido.';
+    if (!formData.sender) {
+      newErrors.sender = 'El correo del emisor es requerido.';
+    } else if (!isValidEmail(formData.sender)) {
+      newErrors.sender = 'Introduce un correo válido.';
+    }
+
+    if (!formData.recipient) {
+      newErrors.recipient = 'El correo del destinatario es requerido.';
+    } else if (!isValidEmail(formData.recipient)) {
+      newErrors.recipient = 'Introduce un correo válido.';
+    }
+
     return newErrors;
   };
 
@@ -57,7 +72,7 @@ const Share = () => {
   return (
     <section className="share-container">
       <div className="share-content">
-      <aside className="product-preview">
+        <aside className="product-preview">
           <div className="card">
             <img src={product.image} alt={product.title} />
             <div className="card-body">
@@ -74,7 +89,7 @@ const Share = () => {
           <div className="form-group">
             <label>Correo emisor:</label>
             <input
-              type="email"
+              type="text"
               name="sender"
               value={formData.sender}
               onChange={handleChange}
@@ -86,7 +101,7 @@ const Share = () => {
           <div className="form-group">
             <label>Correo destinatario:</label>
             <input
-              type="email"
+              type="text"
               name="recipient"
               value={formData.recipient}
               onChange={handleChange}
@@ -116,4 +131,3 @@ const Share = () => {
 };
 
 export default Share;
-
