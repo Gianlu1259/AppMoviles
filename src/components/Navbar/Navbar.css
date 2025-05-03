@@ -9,7 +9,9 @@
   justify-content: space-between;
   
 }
-
+#content-logo{
+  align-items: center;
+}
 #navbar #content-logo a {
   width: 35px;
   height: 35px;
@@ -35,6 +37,7 @@
   display: none;
 }
 #search {
+  margin-right: 1rem;
   display: flex;
   align-items: self-end;
 }
@@ -65,6 +68,7 @@
   right: 10px;
   background: white;
   border: 1px solid #ddd;
+  border-radius: 0.5rem;
   padding: 10px;
   width: 350px;
   z-index: 10;
@@ -85,7 +89,7 @@
   overflow-y: auto;
   list-style: none;
   max-height: 250px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   padding: 0;
 }
 
@@ -110,11 +114,10 @@
 }
 
 .cart-link img {
-  width: 50px;
-  height: 50px;
+  width: 70px !important;
+  height: 70px !important;
   margin-right: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 0px;
 }
 
 .cart-details {
@@ -127,6 +130,39 @@
   font-weight: 500;
   margin: 0;
   line-height: 1.2;
+}
+
+.Delete-Button{
+  border: 0px;
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.Delete-Button:hover{
+  cursor: pointer;
+  background-color: rgb(201, 201, 201);
+}
+
+.Cart-Final{
+  display: flex;
+  justify-content: space-between;
+}
+.Cart-Total-Price{
+  margin: 2px;
+}
+.Buy-Button{
+  border:0px;
+  background-color: #d33fb3;
+  border-radius: 0.4rem;
+  font-size: 16px;
+  padding: 6px;
+  width: 15%;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.Buy-Button:hover{
+  cursor: pointer;
+  background-color: #9c2382;
 }
 
 .cart-price {
@@ -171,24 +207,30 @@
 
 @media (max-width: 768px) {
   #navbar-content{
-    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   #nav-categories{
     display: none;
   }
   #nav-categories-mobile{
+    min-width: 100%;
+    padding-inline-start: 0px;
+    padding-bottom: 8px;
     display: flex;
+    justify-content: space-around;
     list-style: none;
-    padding: 0;
     margin: 0;
+    flex: 1;
     overflow: hidden;
     overflow-x: auto;
   }
+  #nav-categories-mobile li a button{
+    padding: 0px;
+  }
   #nav-categories-mobile .category button {
-
     font-size: 15px;
     font-weight: 700;
-    
   }
 }
 

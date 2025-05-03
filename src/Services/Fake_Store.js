@@ -23,3 +23,16 @@ export const GetProductsByCategory = async (category) => {
     const data = await response.json();
     return data;
 }
+
+export const PostCart = async (cart) => {
+    const response = await fetch(`${URL}/carts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cart),
+    });
+  
+    const data = await response.json();
+    return data;
+};

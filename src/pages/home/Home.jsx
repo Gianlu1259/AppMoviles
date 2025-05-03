@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
-
+import arrow_forward from '../../logos/arrow_forward.svg'
 import ProductCard from '../../components/Product Card/ProductCard.jsx'
 import { GetRecords } from '../../Services/Records'
 import { GetProductById } from '../../Services/Fake_Store'
@@ -63,7 +63,7 @@ const Home = () => {
       </aside>
       <div className="home-container">
         <div className="category-block">
-          <h2 className="category-title">Previously visited</h2>
+          <h2 className="category-title">PREVIOUSLY VISITED</h2>
           <div className="products-grid">
             {records
               .map((prod) => (
@@ -75,7 +75,10 @@ const Home = () => {
           <div key={cat} className="category-block">
             <div className='title-category'>
               <h2 className="category-title">{cat.toUpperCase()}</h2>
-              <a href={`/category/${cat}`}>Ver mas</a>
+              <button onClick={() => window.location.href = `/category/${cat}`} className="See-More">
+                <a>See more</a>
+                <img className="More-Arrow" src={arrow_forward} alt="" />
+              </button>
             </div>
             <div className="products-grid">
               {products

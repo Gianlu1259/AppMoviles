@@ -6,7 +6,7 @@ export function Records(productId){
 
     viewed.unshift(productId); //Inserta al principio
 
-    const limited = viewed.slice(0, 6); //Solo guarda 6
+    const limited = viewed.slice(0, 4); //Solo guarda 4
 
     localStorage.setItem('Records', JSON.stringify(limited));
 }

@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import logo from '../../logos/logo.png';
 import cart from '../../logos/cart.png';
 import search from '../../logos/search.js';
+import delete_icon from '../../logos/delete_icon.svg'
 import './Navbar.css';
 import { GetCategorys } from '../../Services/Fake_Store.js';
+import Purchase from './Purchase.js';
 
 const Navbar = ({ query, setQuery, handleSearch }) => {
     const [showCart, setShowCart] = useState(false);
@@ -51,13 +53,18 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
     return (
         <nav id='navbar'>
             <div id='navbar-content'>
-
                 <div id='content-logo'>
-
                     <a href='/'>
                         <img src={logo} alt='logo' />
                     </a>
                     <ul id='nav-categories'>
+                        <li className='category'>
+                            <a href={`/`}>
+                                <button>
+                                    HOME
+                                </button>
+                            </a>
+                        </li>
                         {
                             categories.map((cat, indx)=>{
                                 return <li key={cat} className='category'>
@@ -94,8 +101,6 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
                         onClick={onClickCart}
                         style={{ cursor: 'pointer' }}
                     />
-                    <a href='/'>Inicio</a>
-
                     {showCart && (
                         <div className='cart-popup'>
                             {cartItems.length === 0 ? (
@@ -113,14 +118,17 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
                                                             <p className='cart-price'>${item.price}</p>
                                                         </div>
                                                     </a>
-                                                    <button onClick={()=>removeProductCart(item.id)}>Quitar</button>
+                                                    <button className='Delete-Button' onClick={()=>removeProductCart(item.id)}>
+                                                        <img src={delete_icon} alt="" />
+                                                    </button>
                                                 </div>
                                             </li>
                                         ))}
                                     </ul>
 
-                                    <div className='cart-total'>
-                                        Total: ${cartItems.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
+                                    <div className='Cart-Final'>
+                                        <p className='Cart-Total-Price'>Total: ${cartItems.reduce((sum, item) => sum + item.price, 0).toFixed(2)}</p>
+                                        <button className='Buy-Button' onClick={Purchase}>Buy</button>
                                     </div>
                                 </>
                             )}

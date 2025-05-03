@@ -38,6 +38,29 @@
   margin-bottom: 40px;
 }
 
+.See-More{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 0px;
+  background-color: #aa3390;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.See-More:hover{
+  background-color: #791a64;
+  cursor: pointer;
+}
+.See-More a{
+  font-size: 18px;
+  text-decoration: none !important;
+  color: white !important; 
+  font-weight: bold;
+}
+.More-Arrow{
+  filter: invert(100%) brightness(1000%);
+}
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -137,5 +160,11 @@
   .price,
   .rating {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 800px) {
+  .Aside{
+    display: none;
   }
 }
