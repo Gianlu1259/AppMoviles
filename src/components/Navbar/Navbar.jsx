@@ -5,9 +5,9 @@ import search from '../../logos/search.js';
 import delete_icon from '../../logos/delete_icon.svg'
 import './Navbar.css';
 import { GetCategorys } from '../../Services/Fake_Store.js';
-import Purchase from './Purchase.js';
+//import Purchase from './Purchase.js';
 
-const Navbar = ({ query, setQuery, handleSearch }) => {
+const Navbar = ({ query, setQuery, handleSearch, handlePurchase }) => {
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
     const [categories, setCategories] = useState([])
@@ -128,7 +128,7 @@ const Navbar = ({ query, setQuery, handleSearch }) => {
 
                                     <div className='Cart-Final'>
                                         <p className='Cart-Total-Price'>Total: ${cartItems.reduce((sum, item) => sum + item.price, 0).toFixed(2)}</p>
-                                        <button className='Buy-Button' onClick={Purchase}>Buy</button>
+                                        <button className='Buy-Button' onClick={handlePurchase}>Buy</button>
                                     </div>
                                 </>
                             )}
